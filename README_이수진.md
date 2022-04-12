@@ -1,4 +1,21 @@
-[TOC]
+- [spring-study](#spring-study)
+- [:pushpin: 궁금한 것들](#-pushpin--------)
+    + [- DAO, DTO, Entity and VO](#--dao--dto--entity-and-vo)
+    + [- NotNull, NotBlank](#--notnull--notblank)
+    + [- 이중콜론 연산자 (::)](#---------------)
+    + [- 즉시 로딩과 지연 로딩](#--------------)
+    + [- @Transactional](#---transactional)
+    + [- @RestController & @Controller](#---restcontroller----controller)
+    + [- @RequestBody & @RequestParam](#---requestbody----requestparam)
+    + [- RequestBody(요청) & ResponseBody(응답)](#--requestbody-------responsebody----)
+    + [- WebSecurity & HttpSecurity](#--websecurity---httpsecurity)
+    + [- 인증 vs 인가](#-----vs---)
+    + [-  swagger Authorize](#---swagger-authorize)
+    + [- 서블릿 & JSP](#--------jsp)
+    + [-  Querydsl](#---querydsl)
+    + [- 디자인 패턴](#--------)
+
+
 
 # spring-study
 
