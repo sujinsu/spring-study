@@ -401,7 +401,7 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
   - data.sql -> import.sql  (파일명 변경)
 
-- ![image-20220329172306453](WEEK01_이수진.assets/image-20220329172306453.png)
+- ![image-20220329172306453](images/WEEK01_이수진.assets/image-20220329172306453.png)
 
 - ```
   	// jwt
