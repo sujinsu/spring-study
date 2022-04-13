@@ -1,70 +1,201 @@
-## 좋은 객체 지향 설계의 5가지 원칙(SOLID)
+## equals와 hashCode 함수
 
-### SOLID란?
+equals()와 hashCode() 메소드는 모든 Java 객체의 부모 객체인 Object 클래스에 정의되어 있다. 그렇기 때문에 Java의 모든 객체는 Object 클래스에 정의된 equals와 hashCode 함수를 상속받고 있다.
 
-#### 클린코드로 유명한 로버트 마틴이 정리한 좋은 객체 지향 설계의 5가지 원칙
+### equals()란?
 
-- SRP : 단일 책임 원칙 (single resposibility principle)
-- OCP : 개방-폐쇄 원칙 (Open/closed priciple)
-- LSP : 리스코프 치환 원칙 (Liskov substitution priciple)
-- ISP : 인터페이스 분리 원칙 (Interface segregation priciple)
-- DIP : 의존관계 역전 원칙 (Despendency inversion priciple)
+Object 클래스에 정의된 equals 메소드는 2개의 객체가 동일한지 검사하기 위해 사용된다. eqauls가 구현된 방법은 2개의 객체가 참조하는 것이 동일한지를 확인하는 것이다.
 
-#### 1. SRP 단일 책임 원칙
+즉, 2개의 객체가 가리키는 곳이 동일한 메모리 주소일 경우에만 동일한 객체가 된다.
 
-- 하나의 클래스는 하나의 책임만 가져야 한다.
+```java
+//Object의 기본 equals 메서드
+public boolean equals(Object obj) {
+    return (this == obj);
+}
+```
 
-사실 하나의 책임이라는 말은 모호한 부분이 있다. 책임이라는 것은 클 수도, 작을 수도 있고 문맥과 상항에 따라 다를 수가 있다. 그래서 이 부분에서 설계가 잘 되었는지 판단할 수 있는 기준이 필요한데 이러한 중요한 판단의 기준은 '변경'이다.
+equals() 메서드는 최상위 클래스인 Object에 포함되어 있기 때문에 모든 하위 클래스에서 재정의해 사용할 수 있다. 예를들어 동일한 문자열을 2개 생성하면 2개의 문자열은 서로 다른 메모리 상에 할당된다. 하지만 equlas()함수를 사용해 문자열을 비교하면 true 값이 나오는 것을 확인할 수 있다. 이는 하위 클래스인 String 클래스에서 equals 메소드를 오버라이딩하여 값를 비교하는 코드를 추가했기 때문이다.
 
-- 중요한 기준은 변경
+```java
+String s1 = new String("equalsTest");
+String s2 = new String("equalsTest");
+System.out.println(s1 == s2); // false
+System.out.println(s1.equals(s2)); // true;
 
-어떠한 변경이 있을때 파금이 적으면 SRP를 잘 따른 것이고 파급이 크다면 잘 따르지 못했다고 할 수 있다. 예를 들어 UI하나를 변경하는데 SQL 코드부터 application까지 모두 고쳐야하는 상황이 생긴다면, SRP를 따르지 않고 설계한 것이다. 반대로 변경이 있을 때 하나의 클래스나 하나의 지점만 고치면 SRP를 잘 따르는 것이라고 볼 수 있다.
+//
+public boolean equals(Object anObject) {
+    if (this == anObject) {
+        return true;
+    }
+    if (anObject instanceof String) {
+        String anotherString = (String)anObject;
+        int n = value.length;
+        if (n == anotherString.value.length) {
+            char v1[] = value;
+            char v2[] = anotherString.value;
+            int i = 0;
+            while (n-- != 0) {
+                if (v1[i] != v2[i])
+                    return false;
+                i++;
+            }
+            return true;
+        }
+    }
+    return false;
+}
+```
 
-- 책임의 범위를 잘 조절하는 것이 필요
+### hashCode()란?
 
-책임의 범위를 너무 작게 하면 class가 너무 잘게 쪼개지고 너무 크게하면 책임이 많아져 이를 잘 조절하는 것이 객체지향의 묘미!
+런타임에서 개체의 고유 한 정수 값을 반환합니다. 기본적으로 정수 값은 대부분 힙에있는 개체의 메모리 주소에서 파생됩니다 (항상 필수는 아님).
 
-#### 2. OCP 개방-폐쇄 원칙
+hashCode는 HashTable과 같은 자료구조를 사용할 때 데이터가 저장되는 위치를 결정하기 위해 사용된다.
 
-- 소프트웨어 요소는 확장에는 열려 있으나 변경에는 닫혀 있어야 한다.
+```java
+public native int hashCode();
+```
 
-새로운 기능을 추가할 때 기존 코드는 변경하지 않고 인터페이스를 구현한 새로운 클래스를 하나 만들어서 기능을 구현해야 한다.
+> native method : OS의 method (주로 C언어로 구현)
 
-- 문제점
+> 이미 작성되어 있는 method(OS가 가지고 있는 method)를 사용해 내용이 없다.
+>
+> -> OS가 가지고 있는 C언어로 작성된 메서드를 마치 자바로 작성된 메서드인것처럼 사용가능 (∽JNI)
 
-다형성만으로는 OCP 원칙을 지키기 힘들다.
+### equals()와 hashCode()의 관계
 
-![](https://taeho0304.github.io/assets/img/Etc/OCP_ex_1.PNG)
+일반적으로 equals()를 오버라이딩하면 hashCode()또한 같이 어버라이딩하여 **'동일한 객체에는 동일한 해시 코드가 있어야한다'**는 관계를 지켜야한다.
 
-ex)
-MemeberService 클라이언트가 구현 클래스를 직접 선택할 때 구현객체를 변경하려면 클라이언트 코드를 변경해야 한다. 즉 인터페이스를 구현한 새로운 클래스를 하나 만들어도 OCP 원칙을 지킬 수 없다. 이를 해결하기 위해서는 객체를 생성하고, 연관관계를 맺어주는 별도의 조립, 설정자가 필요하다.(ex : Spring)
+이러한 equals와 hashCode의 관계를 정의하면 다음과 같다.
 
-#### 3. LSP 리스코프 치환 원칙
+1. Java 응용 프로그램을 실행하는 동안 equals에 사용된 정보가 수정되지 않았다면, hashCode는 항상 동일한 정수값을 반환해야 한다.
 
-- 프로그램의 객체는 프로그램의 정확성을 깨뜨리지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다.
+2. 두 객체가 equals()에 의해 동일하다면, 두 객체의 hashCode() 값도 일치해야 한다.
 
-다형성에서 하위 클래스는 인터페이스 규약을 지켜 기능적으로 보장을 해줘야 한다는 개념이다. 예를 들어 자동차 인터페이스를 상속받아 엑셀 기능을 구현할 때 엑셀기능은 앞으로 전진하도록 구현해야 한다. 만약 엑셀을 앞이 아닌 뒤로 가도록 구현한다면 컴파일은 단계에서는 문제가 없지만 엑셀은 앞으로 전진한다느 규약을 지키지 않아 LSP를 위반하는 것이다.
+3. 두 객체가 equals()에 의해 동일하지 않다면, 두 객체의 hashCode() 값은 일치하지 않아도 된다.
 
-#### 4. ISP 인터페이스 분리 원칙
+### hashCode() 및 equals()의 Override
 
-- 특정 클라이언트를 위한 인터페이스 여러개가 범용 인터페이스 하나보다 낫다.
+#### 기본동작
 
-예를 들어 자동차 인터페이스를 운전자 인터페이스워 정비 인터페이스를 분리하면 client를 사용자 client와 정비 client로 분리할 수 있고, 분리된 사용자 client는 다시 운전자 client와 정비사 client로 분리할 수 있다. 이렇게 인터페이스를 분리해 사용하면 정비 인터페이스가 변해도 운전자 클라이언트에 영향을 주지 않는다. 즉 인터페이스를 특정 client를 위해 분리해 놓으면 인터페이스가 명확해지고 대체 가능성이 높아진다.
+만약 애플리케이션에 아래와 같은 Employee 클래스가 있다고 하자.
 
-#### 5. DIP 의존관계 역전 원칙
+###### Employee.java
 
-- 프로그래머는 "추상화에 의존해야지, 구체화에 의존하면 안된다." 라는 원칙을 따르는 방법 중 하나이다.
+```java
+public class Employee{
+    private Integer id;
+    private String firstname;
+    private String lastName;
+    private String department;
 
-구현클래스에 의존하지 말고, 인터페이스에 의존하라는 뜻이다.
+    //Setters and Getters
+}
+```
 
-![](https://taeho0304.github.io/assets/img/Etc/DIP_ex_1.PNG)
+만약 아래와 같이 동일한 id 값을 갖는 2개의 Employ를 서로 다른 처리 과정에 의해 얻었다고 하자. 2개의 Employee는 동일한 id를 갖기 때문에 equals 연산을 한다면 true를 반환해야 한다. 하지만 아래의 예제는 깊게 볼 필요도 없이 false를 반환할 것이다.
 
-운전자는 K3에 대해서 디테일하게 알아야 하는 것이 아니라 자동차의 역할에 대해서 상세히 알아야 한다.
+```java
+public class EqualsTest {
+    public static void main(String[] args) {
+        Employee e1 = new Employee();
+        Employee e2 = new Employee();
 
-- 문제점
+        e1.setId(100);
+        e2.setId(100);
 
-다형성만으로는 DIP 원칙을 지키기 힘들다.
+        System.out.println(e1.equals(e2));  //false
+    }
+}
+```
 
-![](https://taeho0304.github.io/assets/img/Etc/OCP_ex_1.PNG)
+올바른 동작을 얻기 위해서는 Employee 클래스내에 equals() 메소드를 오버라이드 해야 한다.
 
-ex) OCP에서 설명한 MemberService는 인터페이스에 의존하지만, 구현 클래스도 동시의 의존하고 있어 DIP를 위반하고 있다.
+```java
+public boolean equals(Object o) {
+    if(o == null) {
+        return false;
+    }
+    if (o == this) {
+        return true;
+    }
+    if (getClass() != o.getClass()) {
+        return false;
+    }
+
+    Employee e = (Employee) o;
+    return (this.getId() == e.getId());
+}
+```
+
+위와 같이 equals() 메소드를 오버라이드하면 eqauls() 메서드가 원하는대로 수행된다.
+
+하지만 Employee를 HashSet과 같은 자료구조에 저장하면 또 다른 문제가 발생한다.
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class EqualsTest
+{
+    public static void main(String[] args)
+    {
+        Employee e1 = new Employee();
+        Employee e2 = new Employee();
+
+        e1.setId(100);
+        e2.setId(100);
+
+        //Prints 'true'
+        System.out.println(e1.equals(e2));
+
+        Set<Employee> employees = new HashSet<Employee>();
+        employees.add(e1);
+        employees.add(e2);
+
+        System.out.println(employees);  // [study.Employee@2a139a55, study.Employee@15db9742]
+    }
+}
+```
+
+hashCode() 메소드는 해당 메모리 주소값을 이용해 정수값을 반환한다. 그렇기 때문에 위의 e1과 e2는 다른 해시값을 가져 HashSet에 2개의 객체가 서로 다른 위치에 저장된다. 따라서 equals()를 수정하면 hashCode()또한 수정이 필요하다.
+
+```java
+@Override
+public int hashCode()
+{
+    final int PRIME = 31;
+    int result = 1;
+    result = PRIME * result + getId();
+    return result;
+}
+```
+
+위와 같이 Employee 클래스내에 hashCode() 메서드를 오버라이드 작업을 수행하면 동일한 객체 하나만 출력하는 것을 볼 수 있다.
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class EqualsTest
+{
+    public static void main(String[] args)
+    {
+        Employee e1 = new Employee();
+        Employee e2 = new Employee();
+
+        e1.setId(100);
+        e2.setId(100);
+
+        //Prints 'true'
+        System.out.println(e1.equals(e2));
+
+        Set<Employee> employees = new HashSet<Employee>();
+        employees.add(e1);
+        employees.add(e2);
+
+        System.out.println(employees); // [study.Employee@83]
+    }
+}
+```
