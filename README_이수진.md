@@ -23,21 +23,22 @@
 >
 > 매주 끌리는 주제를 골라 정리해볼 계획 🔥
 
-| 주제                                                |        |
-| --------------------------------------------------- | ------ |
-| :white_large_square:  DAO, DTO, Entity and VO       |        |
-| :white_large_square:  NotNull, NotBlank             |        |
-| :white_large_square:  이중콜론 연산자 (::)          |        |
-| :white_large_square:  즉시 로딩과 지연 로딩         |        |
-| :white_large_square:  @Transactional                |        |
-| :white_large_square:  @RestController & @Controller |        |
-| :white_large_square:  @RequestBody & @ ReqeustParam |        |
-| :white_large_square:  WebSecurity & HttpSecurity    |        |
-| :white_large_square:  인증 vs 인가                  |        |
-| :white_large_square:  Swagger Authorize             |        |
-| :white_large_square:  서블릿 & jsp                  |        |
-| :white_check_mark: QueryDSL                         | WEEK02 |
-| :white_large_square:  디자인 패턴                   |        |
+| 주제                                                         |        |
+| ------------------------------------------------------------ | ------ |
+| :white_check_mark:  백엔드 기초                              | WEEK01 |
+| :white_check_mark:  QueryDSL                                 | WEEK02 |
+| :white_large_square:  DAO, DTO, Entity and VO                |        |
+| :white_large_square:  NotNull, NotBlank                      |        |
+| :white_large_square:  이중콜론 연산자 (::)                   |        |
+| :white_large_square:  즉시 로딩과 지연 로딩                  |        |
+| :white_large_square:  @Transactional                         |        |
+| :white_large_square:  @RestController & @Controller          |        |
+| :white_large_square:  @RequestBody & @ ReqeustParam & @ModelAttrubute |        |
+| :white_large_square:  WebSecurity & HttpSecurity             |        |
+| :white_large_square:  인증 vs 인가                           |        |
+| :white_large_square:  Swagger Authorize                      |        |
+| :white_large_square:  서블릿 & jsp                           |        |
+| :white_large_square:  디자인 패턴                            |        |
 
 
 

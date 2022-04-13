@@ -4,7 +4,7 @@
 
 
 
-## [Rhea- 통합모니터링 백엔드 개발을 위한 준비](https://dh.digitalkds.co.kr/digital/pl/ghpj4cxa77n55nwagewb3mmmdo)
+## [백엔드 개발을 위한 준비](https://dh.digitalkds.co.kr/digital/pl/ghpj4cxa77n55nwagewb3mmmdo)
 
 
 
@@ -124,11 +124,9 @@ cf) ` spring boot starter`
   - 변경이 일어나면, 변경 통지에 대한 처리방법 구현
   ```
 
-​		cf) 
+`Model과 View 는 서로 몰라야함`
 
 
-
-Model과 View 는 서로 몰라야함
 
 
 
