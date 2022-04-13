@@ -196,7 +196,7 @@ cf)  **JDBC**  (Java Database Connectivity)
   - 빌드 환경 : 사용자 환경 별로 달라질 수 있는 프로파일 정보
   - pom 연관 정보 : 의존 프로젝트(모듈), 상위 프로젝트, 포함하고 있는 하위 모듈 등
 
-![image-20220328134803858](WEEK01_이수진.assets/image-20220328134803858.png)
+![image-20220328134803858](images/WEEK01_이수진.assets/image-20220328134803858.png)
 
 #### Gradle
 
@@ -359,17 +359,17 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
 
 
-![image-20220330111456181](WEEK01_이수진.assets/image-20220330111456181.png)
+![image-20220330111456181](images/WEEK01_이수진.assets/image-20220330111456181.png)
 
 
 
-![image-20220330112633574](WEEK01_이수진.assets/image-20220330112633574.png)
+![image-20220330112633574](images/WEEK01_이수진.assets/image-20220330112633574-16498489958881.png)
 
 
 
-![image-20220330112609419](WEEK01_이수진.assets/image-20220330112609419.png)
+![image-20220330112609419](images/WEEK01_이수진.assets/image-20220330112609419-16498490516062.png)
 
-![image-20220330112908462](WEEK01_이수진.assets/image-20220330112908462.png)
+![image-20220330112908462](images/WEEK01_이수진.assets/image-20220330112908462.png)
 
 - api/authenticate (POST) -> api/user (GET) 
 
@@ -379,9 +379,9 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
 - `Bearer <jwt token>`
 
-![image-20220331163257251](WEEK01_이수진.assets/image-20220331163257251.png)
+![image-20220331163257251](images/WEEK01_이수진.assets/image-20220331163257251.png)
 
-![image-20220331163244456](WEEK01_이수진.assets/image-20220331163244456.png)
+![image-20220331163244456](images/WEEK01_이수진.assets/image-20220331163244456.png)
 
 
 
