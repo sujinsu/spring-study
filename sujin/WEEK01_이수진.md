@@ -1,6 +1,6 @@
 [TOC]
 
-아직 하는 중~~~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 
 
@@ -129,7 +129,6 @@ cf) ` spring boot starter`
 
 
 
-
 - **Controller**
 
   - Model과 View 사이를 이어주는 인터페이스 역할
@@ -197,7 +196,7 @@ cf)  **JDBC**  (Java Database Connectivity)
   - 빌드 환경 : 사용자 환경 별로 달라질 수 있는 프로파일 정보
   - pom 연관 정보 : 의존 프로젝트(모듈), 상위 프로젝트, 포함하고 있는 하위 모듈 등
 
-![image-20220328134803858](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220328134803858.png)
+![image-20220328134803858](WEEK01_이수진.assets/image-20220328134803858.png)
 
 #### Gradle
 
@@ -356,21 +355,21 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
 #### 실습
 
-![image-20220330111429040](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220330111429040.png)
+![image-20220330111429040](WEEK01_이수진.assets/image-20220330111429040.png)
 
 
 
-![image-20220330111456181](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220330111456181.png)
+![image-20220330111456181](WEEK01_이수진.assets/image-20220330111456181.png)
 
 
 
-![image-20220330112633574](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220330112633574.png)
+![image-20220330112633574](WEEK01_이수진.assets/image-20220330112633574.png)
 
 
 
-![image-20220330112609419](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220330112609419.png)
+![image-20220330112609419](WEEK01_이수진.assets/image-20220330112609419.png)
 
-![image-20220330112908462](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220330112908462.png)
+![image-20220330112908462](WEEK01_이수진.assets/image-20220330112908462.png)
 
 - api/authenticate (POST) -> api/user (GET) 
 
@@ -380,9 +379,9 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
 - `Bearer <jwt token>`
 
-![image-20220331163257251](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220331163257251.png)
+![image-20220331163257251](WEEK01_이수진.assets/image-20220331163257251.png)
 
-![image-20220331163244456](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220331163244456.png)
+![image-20220331163244456](WEEK01_이수진.assets/image-20220331163244456.png)
 
 
 
@@ -402,7 +401,7 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
   - data.sql -> import.sql  (파일명 변경)
 
-- ![image-20220329172306453](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220329172306453.png)
+- ![image-20220329172306453](WEEK01_이수진.assets/image-20220329172306453.png)
 
 - ```
   	// jwt
@@ -620,7 +619,7 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
 > 독립적으로 운영될 수 있는 의미를 가지는 구성요소 단위
 
-![image-20220329112933892](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220329112933892.png)
+![image-20220329112933892](images/WEEK01_이수진.assets/image-20220329112933892.png)
 
 
 
