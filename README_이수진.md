@@ -1,32 +1,16 @@
-- [spring-study](#spring-study)
-- [:pushpin: 궁금한 것들](#-pushpin--------)
-    + [- DAO, DTO, Entity and VO](#--dao--dto--entity-and-vo)
-    + [- NotNull, NotBlank](#--notnull--notblank)
-    + [- 이중콜론 연산자 (::)](#---------------)
-    + [- 즉시 로딩과 지연 로딩](#--------------)
-    + [- @Transactional](#---transactional)
-    + [- @RestController & @Controller](#---restcontroller----controller)
-    + [- @RequestBody & @RequestParam](#---requestbody----requestparam)
-    + [- RequestBody(요청) & ResponseBody(응답)](#--requestbody-------responsebody----)
-    + [- WebSecurity & HttpSecurity](#--websecurity---httpsecurity)
-    + [- 인증 vs 인가](#-----vs---)
-    + [-  swagger Authorize](#---swagger-authorize)
-    + [- 서블릿 & JSP](#--------jsp)
-    + [-  Querydsl](#---querydsl)
-    + [- 디자인 패턴](#--------)
-
-
-
 # spring-study
 
 > 궁금한 점이 생길때마다 목록 업데이트 
 >
 > 매주 끌리는 주제를 골라 정리해볼 계획 🔥
+>
+> 정리 시 아래의 내용 ✋
 
 | 주제                                                         |        |
 | ------------------------------------------------------------ | ------ |
 | :white_check_mark:  백엔드 기초                              | WEEK01 |
-| :white_check_mark:  QueryDSL                                 | WEEK02 |
+| :white_check_mark:  JPA                                      | WEEK02 |
+| :white_large_square:  QueryDSL                               |        |
 | :white_large_square:  DAO, DTO, Entity and VO                |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
