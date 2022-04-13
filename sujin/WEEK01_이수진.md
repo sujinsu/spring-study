@@ -355,7 +355,7 @@ So, 접근하기 위해  getter, setter 와 같은 함수 정의 필요
 
 #### 실습
 
-![image-20220330111429040](WEEK01_이수진.assets/image-20220330111429040.png)
+![image-20220330111429040](images/WEEK01_이수진.assets/image-20220330111429040.png)
 
 
 
