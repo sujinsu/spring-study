@@ -10,8 +10,8 @@
 | ------------------------------------------------------------ | ------ |
 | :white_check_mark:  백엔드 기초                              | WEEK01 |
 | :white_check_mark:  JPA                                      | WEEK02 |
+| :white_large_square:  DAO, DTO, Entity and VO                | WEEK03 |
 | :white_large_square:  QueryDSL                               |        |
-| :white_large_square:  DAO, DTO, Entity and VO                |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
 | :white_large_square:  즉시 로딩과 지연 로딩                  |        |
@@ -23,6 +23,7 @@
 | :white_large_square:  Swagger Authorize                      |        |
 | :white_large_square:  서블릿 & jsp                           |        |
 | :white_large_square:  디자인 패턴                            |        |
+| :white_large_square:  빌더 패턴                              |        |
 
 
 
