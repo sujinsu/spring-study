@@ -4,7 +4,7 @@
 
 
 
-![image-20220418144332051](WEEK03_이수진.assets/image-20220418144332051-16502606130754.png)
+![image-20220418144332051](images/WEEK03_이수진.assets/image-20220418144332051-16502606130754.png)
 
 
 
@@ -100,7 +100,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 ![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6594f941-88d1-4704-b1ee-94e4975e3ef0/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220418%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220418T045436Z&X-Amz-Expires=86400&X-Amz-Signature=d0e5b22febf8250a740eaa4cea485e2dc8b9d407f4d74675ffa734d4df66465b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
-![image-20220418142600891](WEEK03_이수진.assets/image-20220418142600891-16502595633373.png)
+![image-20220418142600891](images/WEEK03_이수진.assets/image-20220418142600891-16502595633373-16502656253421.png)
 
 
 
