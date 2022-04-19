@@ -14,6 +14,9 @@
 
 - `repository package`
 - 실제 DB에 접근하는 객체 (Persistence Layer) : DB에 data를 CRUD 하는 계층
+- 프로젝트의 서비스 모델과 실제 DB 연결하는 역할
+  - JPA에서는 DB 데이터를 CRUD하는 Repository 객체들을 의미
+
 - SQL 사용 (개발자 직접 코딩) 하여 DB접근한 후 적절한 CRUD API 제공
 
 ```java
@@ -58,8 +61,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
 # ⚡ Entity
 
 - `domain package`
-- 실제 DB 테이블과 매칭될 클래스 / 가장 core한 클래스
+- 실제 DB 테이블과 1:1로 매칭될 클래스 / 가장 core한 클래스
 - setter 접근 금지 & 기본 생성자 사용 제한(protected)
+  - 생성자로 필드에 값 넣어주는 방식 : 순서 부정확성, 필드 불명확성
+  -  Builder 패턴 : 필요한 값만 집어넣기 가능
+
 - @Entity, @Column, @Id 등을 이용
 
 
