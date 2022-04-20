@@ -4,12 +4,15 @@
     - [장점](#장점)
     - [단점](#단점)
   - [REST API 설계](#rest-api-설계)
+  - [IDE에서 REST API 사용하기](#ide에서-rest-api-사용하기)
+    - [Intellij](#intellij)
+    - [VScode](#vscode)
   - [Reference](#reference)
 
 # REST 맛보기
 
 ## REST(Representational State Transfer)란?
-![GET 요청](asset/GET.JPG)
+![GET 요청](assets/GET.JPG)
 - 자원을 이름을 구분하여 해당 상태 정보를 주고 받는 것
 - 자원(Resource)의 표현
   - 이미지, 문서, 데이터..
@@ -54,6 +57,18 @@ api/v1/Movies
 api/v1/Movies/dr-strange
 api/v1/Movies/dr-strange
 ```
+
+## IDE에서 REST API 사용하기
+
+### Intellij
+
+### VScode
+
+1) REST Extensions 설치
+![rest-client-extension](assets/rest-client-extenstion.JPG)
+
+2) 확장자가 .http인 파일 생성 및 실행
+![api.http](assets/vscode-http.JPG)
 
 ## Reference
 - [REST란?](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html)
