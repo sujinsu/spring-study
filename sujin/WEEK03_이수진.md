@@ -1,4 +1,4 @@
-![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c337113f-a710-4c40-8d35-21a195a18e35/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220418%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220418T045358Z&X-Amz-Expires=86400&X-Amz-Signature=274dcfb9dff657946c6ee806b4da8c345a41a279d7ea365811d38d7de118a0e2&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+
 
 
 
@@ -36,6 +36,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
   - 로직 X, 순수한 데이터 객체, `getter/setter 메서드`만을 가짐
   - 계층(Layer) : controller, service, repository
+  - 주로 직렬화에 사용되는 객체
 
 - DB에서 데이터를 얻어 Service나 Controller로 보낼 때 사용하는 객체
 
@@ -104,7 +105,45 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 - 테이블 내 속성 외에 추가적인 속성을 가질 수 있음
 
-![img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6594f941-88d1-4704-b1ee-94e4975e3ef0/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220418%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220418T045436Z&X-Amz-Expires=86400&X-Amz-Signature=d0e5b22febf8250a740eaa4cea485e2dc8b9d407f4d74675ffa734d4df66465b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+```java
+public class CarVO { 
+    private final String color; 
+    public CarVO(String color) {
+        this.color = color; 
+    } 
+    
+    @Override 
+    public boolean equals(Object o) {
+        if (this == o) return true; 
+        if (o == null || getClass() != o.getClass()) 
+            return false; 
+        CarVO carVO = (CarVO) o; 
+        return Objects.equals(color, carVO.color); 
+    } 
+    @Override 
+    public int hashCode() { 
+        return Objects.hash(color); 
+    } 
+}
+```
+
+
+
+
+
+cf ) `@EqualsAndHashCode` 
+
+- equals 
+  - 두 객체의 내용이 같은지, 동등성(equality) 비교
+- hashcode
+  - 두 객체가 같은 객체인지, 동일성(identity) 비교
+
+- callSuper 속성 > equals 와 hashCode 메소드 자동 생성 시 부모 클래스의 필드까지 감안할지 여부
+  - 기본값 false
+
+
+
+
 
 ![image-20220418142600891](images/WEEK03_이수진.assets/image-20220418142600891-16502595633373-16502656253421.png)
 
@@ -149,10 +188,90 @@ cf) `@Controller` : API & View  동시 사용하는 경우 사용하는 어노�
 
 
 
+
+
+
+
+
+
 [참고1](https://jojoldu.tistory.com/134)
 
 [참고2](https://maenco.tistory.com/entry/Java-DTO%EC%99%80-VO%EC%9D%98-%EC%B0%A8%EC%9D%B4)
 
 [참고3](https://sas-study.tistory.com/404)
 
+[참고4](https://n1tjrgns.tistory.com/164)
+
 [참고영상1](https://www.youtube.com/watch?v=J_Dr6R0Ov8E)
+
+
+
+---
+
+
+
+### cf) Serializable
+
+> 단지 persistence 가 목적이라면 Serializable 은 필요 X
+>
+> But Entity에 Serializable 구현 하는 것이 권장 사항
+>
+> Presentation layer에 domain(entity) 객체를 DTO나 VO대신 보낼 때 값으로 전달 
+>
+> 👉 Serializable을 implements
+>
+> HTTPSession에 값을 저장할 수도 있기 때문 (caching/optimization 목적으로서)
+
+- 의미
+  - 자바 직렬화란 자바 시스템 내부에서 사용되는 `객체` or `데이터`를 
+    외부의 자바 시스템에서도 사용할 수 있도록 `바이트(byte)` 형태로 데이터 변환
+
+
+
+- **implements Serializable**
+
+  > 개발자가 작성한 클래스가 파일에 읽거나 쓸 수 있도록 하거나
+  >
+  > 다른 서버로 보내거나 받을 수 있도록 하기 위해 사용
+
+  - remote 서버에 전송할 때 클래스 필드 정보 직렬화하여 사용 (메소드는 포함 X)
+
+  실제 ex) memcached 를 쓸 때 도메인 객체에 Serializable 구현 X >> 에러 
+
+  - 캐시 저장시 도메인 객체 단위로 넣어두곤 하는데, 직렬화된 도메인 객체 정보를 사용하기 때문
+
+
+
+- `serialVersionUID`
+
+  -  JVM에서 고유하게 식별하는 상수 
+
+    - 선언 X >> JVM에서 자동으로 생성 BUT 명시하는 것 권장사항 
+
+  - 전송하는 서버, 전송받는 서버가 같은 객체를 다루는지 식별하기 위해 필요
+
+  - 이름이 같은 클래스여도 serialVersionUID 가 다르면 다른 클래스로 인식  
+
+    ```java
+    public class SerialDto implements Serializable {
+        static final long serialVersionUID = 1L;
+    	
+        private String id;
+        private String name;
+        . . .
+    }
+    ```
+
+    
+
+
+
+
+
+
+
+[참고1](https://dev-cool.tistory.com/10)
+
+[참고2](https://jongminlee0.github.io/2020/03/15/serializable/)
+
+[참고3](https://velog.io/@sa1341/Java-%EC%A7%81%EB%A0%AC%ED%99%94%EB%A5%BC-%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0%EA%B0%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C)
