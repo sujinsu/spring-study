@@ -283,6 +283,33 @@ class Main {
 
 
 
+- 제한된 제네릭과 와일드 카드
+
+  - `extends T` : 상한 경계
+  - `? super T` : 하한 경계
+  - `<?>` : 와일드 카드 (Wild card)
+    - <? extends Object> 와 마찬가지
+    - 어떤 타입이든 상관 x ,  기능의 사용에만 관심 
+
+  ```java
+  <K extends T>	// T와 T의 자손 타입만 가능 (K는 들어오는 타입으로 지정 됨)
+  <K super T>	// T와 T의 부모(조상) 타입만 가능 (K는 들어오는 타입으로 지정 됨)
+  
+      
+  // 업캐스팅 시 Error 대비
+  public class Student extends Person implements Comparable<Person>
+  
+  <E extends Comparable<? super E>> // E 자기 자신 및 조상 타입과 비교할 수 있는 E
+  ```
+
+  
+
+
+
+
+
+
+
 [참고1](https://st-lab.tistory.com/153)
 
 ---
