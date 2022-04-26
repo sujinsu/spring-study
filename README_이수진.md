@@ -11,7 +11,7 @@
 | :white_check_mark:  백엔드 기초                              | WEEK01 |
 | :white_check_mark:  JPA                                      | WEEK02 |
 | :white_check_mark:  DAO, DTO, Entity and VO                  | WEEK03 |
-| :white_check_mark:  형변환 & 제네릭                          | WEEK04 |
+| :white_check_mark:  Wrapper Class : 형변환 & 제네릭          | WEEK04 |
 | :white_large_square:  QueryDSL                               |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
@@ -35,40 +35,7 @@
 
 # :pushpin: 궁금한 것들
 
-###  - DAO, DTO, Entity and VO
 
-- **DAO** (Data Access Object)
-  - repository package
-  - 실제 DB에 접근하는 객체 (Persistence Layer) : DB에 data를 CRUD 하는 계층
-  - SQL 사용 (개발자 직접 코딩)
-- **DTO** (Data Transfer Object)
-  - dto package
-  - 계층간 데이터 교환을 위한 객체 (Java Beans)
-  - DB에서 데이터를 얻어 Service나 Controller로 보낼 때 사용하는 객체
-  - 로직 X, 순수한 데이터 객체, getter/setter 메서드만을 가짐
-  - Request, Response 용 DTO 는 View 를 위한 클래스
-    - toEntity() 를 통해 DTO에서 필요한 부분 이용해 엔티티 생성
-    - controller layer에서 Response DTO 형태로 client 전달
-  - cf) `VO(Value Object) vs DTO`
-    - **VO** : 특정한 비즈니스값을 담는 객체
-    - **DTO** : Layer간의 통신 용도로 오고가는 객체
-    - VO는 DTO와 동일 개념이지만, read only 속성을 갖는다
-
-- **Entity**
-  - domain package
-  - 실제 DB 테이블과 매칭될 클래스
-  - @Entity, @Column, @Id 등을 이용
-
-
-
-- Entity클래스와 DTO 클래스를 분리하는 이유
-  - View Layer와 DB Layer를 철저하게 분리하기 위해
-  - 테이블과 매핑된 Entity 변경 -> 여러 클래스에 영향
-  - View와 통신하는 DTO클래스(Request/Response) 자주 변경되므로 분리
-  - DTO는 Domain Model을 복사한 형태 + 다양한 Presentation Logic 추가
-  - Domain Model 객체는 Persistent 만을 위해 사용
-
-[참고](https://gmlwjd9405.github.io/2018/12/25/difference-dao-dto-entity.html)
 
 ---
 
@@ -334,15 +301,7 @@ protected void configure(HttpSecurity http) throws Exception {
   - 서블릿의 단점을 보완하고자 만든 서블릿 기반의 스크립트 기술
   - 프리젠테이션 층을 담당
 
-![image-20220331172632061](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220331172632061.png)
 
-
-
-![image-20220331172729343](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220331172729343.png)
-
-
-
-![image-20220331172750057](../../../../Downloads/Rhea- 통합모니터링 백엔드 개발을 위한 준비.assets/image-20220331172750057.png)
 
 
 
