@@ -11,6 +11,7 @@
 | :white_check_mark:  백엔드 기초                              | WEEK01 |
 | :white_check_mark:  JPA                                      | WEEK02 |
 | :white_check_mark:  DAO, DTO, Entity and VO                  | WEEK03 |
+| :white_check_mark:  형변환 & 제네릭                          | WEEK04 |
 | :white_large_square:  QueryDSL                               |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
