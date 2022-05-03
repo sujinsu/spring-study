@@ -169,6 +169,10 @@ BUT `RequestParam` 도 생략 가능 →  혼란 가능성
 - 직접 만든 객체 지정 가능
 
 **생략 불가능**
+생략시 ModelAttribute 적용 > 메시지 바디가 아닌 요청 파라미터 처리
+
+주의 : 요청시 Content-Type application/json 확인
+		그래야 JSON 처리 가능한 HTTP 메시지 컨버터 실행
 ````
 
 
