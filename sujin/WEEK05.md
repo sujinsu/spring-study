@@ -258,11 +258,53 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 
 **핸들러 어댑터 ↔ 컨트롤러**
 
-![](images/WEEK05.assets/messageConverter-16515607299361.png)
+![](images/WEEK05.assets/argumentHandler.png)
 
 
 
 
+
+<**요청>**
+
+### ArgumentResolver (= `HandlerMethodArgumentResolver`)
+
+> ArgumentResolver 의 supportsParameter() 를 호출해서 해당 파라미터를 지원하는지 체크
+>
+> 지원하면 resolveArgument() 를 호출해서 실제 객체를 생성
+
+- HttpServletRequest, Model, RequestParam, ModelAttribute 어노테이션 처리
+- RequestBody, HttpEntity 등  HTTP 메시지 처리
+  - 각각을 처리하는 HTTP 메시지 컨버터를 사용해서 필요한 객체를 생성
+
+- 컨트롤러(핸들러)가 필요로 하는 다양한 파라미터의 값(객체)을 생성
+- `RequestMappingHandlerAdaptor`
+
+```java
+1. ArgumentResolver 호출
+2. 컨트롤러(핸들러)가 필요로 하는 파라미터의 값(객체) 생성
+3. 컨트롤러 호출 & 값 전달
+```
+
+
+
+**<응답>**
+
+### ReturnValueHandler ( = `HandlerMethodReturnValueHandler`)
+
+- ResponseBody, HttpEntity 처리
+- HTTP 메시지 컨버터 호출 → 응답 결과 생성
+
+
+
+
+
+
+
+
+
+
+
+**![](WEEK05.assets/messageConverter-16515607299361.png)**
 
 # MessageConverter  : 문자나 객체 변환
 
@@ -312,38 +354,3 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 
 
 
-![](images/WEEK05.assets/argumentHandler.png)
-
-
-
-
-
-<**요청>**
-
-### ArgumentResolver (= `HandlerMethodArgumentResolver`)
-
-> ArgumentResolver 의 supportsParameter() 를 호출해서 해당 파라미터를 지원하는지 체크
->
-> 지원하면 resolveArgument() 를 호출해서 실제 객체를 생성
-
-- HttpServletRequest, Model, RequestParam, ModelAttribute 어노테이션 처리
-- RequestBody, HttpEntity 등  HTTP 메시지 처리
-  - 각각을 처리하는 HTTP 메시지 컨버터를 사용해서 필요한 객체를 생성
-
-- 컨트롤러(핸들러)가 필요로 하는 다양한 파라미터의 값(객체)을 생성
-- `RequestMappingHandlerAdaptor`
-
-```java
-1. ArgumentResolver 호출
-2. 컨트롤러(핸들러)가 필요로 하는 파라미터의 값(객체) 생성
-3. 컨트롤러 호출 & 값 전달
-```
-
-
-
-**<응답>**
-
-### ReturnValueHandler ( = `HandlerMethodReturnValueHandler`)
-
-- ResponseBody, HttpEntity 처리
-- HTTP 메시지 컨버터 호출 → 응답 결과 생성
