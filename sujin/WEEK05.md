@@ -136,7 +136,7 @@ ex) 회원 가입, 상품 주문, HTML Form 사용
 BUT `RequestParam` 도 생략 가능 →  혼란 가능성
 
 > > > > String, int, Integer 과 같은 단순 타입 : `RequestParam` 
-그 외( = argument resolver로 지정한 타입 외) : `ModelAttribute`
+그 외( + argument resolver로 지정한 타입 외) : `ModelAttribute`
 
 **BindException** : 숫자가 들어갈 곳에 문자를 넣는 경우 발생
 ```
