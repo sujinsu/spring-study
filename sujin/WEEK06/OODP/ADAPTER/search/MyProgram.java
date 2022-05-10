@@ -19,6 +19,7 @@ public class MyProgram {
       searchButton.setSearchStrategy(new SearchStrategyMap());
   }
 
+  // 어댑터에 FindMovieAlgorithm 객체 넣어주어 어댑터 사용
   public void setModeMovie (){
       searchButton.setSearchStrategy(
               new SearchFindAdapter(new FindMovieAlgorithm())

@@ -3,7 +3,9 @@ package oodp.PROXY;
 import java.util.ArrayList;
 
 public class MyProgram {
-
+    // 인터넷에서 받아와야 해서 오래 걸리거나 메모리 등의 문제로 객체로 여럿 생성하기 부담인 것들
+    // 그 클래스의 proxy, 대리인을 두어 가벼운 일 처리
+    // 유튜브 기본적으로 제목(proxy), 커서 갖다대야 프리뷰 재생(real)
     public static void main(String[] args) {
         ArrayList<Thumbnail> thumbnails = new ArrayList<Thumbnail>();
 

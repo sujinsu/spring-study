@@ -1,5 +1,5 @@
 package oodp.COMMAND;
-
+// 로봇에게 내릴 명령을 객체로 저장
 abstract class Command {
   protected Robot robot;
 

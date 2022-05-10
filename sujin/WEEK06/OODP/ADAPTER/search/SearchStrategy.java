@@ -36,7 +36,8 @@ class SearchFindAdapter implements SearchStrategy {
   public SearchFindAdapter(FindAlgorithm _findAlgorithm){
     findAlgorithm = _findAlgorithm;
   }
-
+  // 생성자로 findAlgorithm 객체, search 로 실행
+  // 항상 글로벌로 검색
   public void search(){
     findAlgorithm.find(true);
   }
