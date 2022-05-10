@@ -1,5 +1,3 @@
-# 
-
 # SpringMVC
 
 - 1. HTTP 요청 처리 가능한 핸들러 조회
@@ -34,6 +32,10 @@
   - 중복되는 작업
     - 모든 서블릿이 공통을 처리하는 작업
     - 가장 우선시 되야하는 작업 등
+
+
+
+
 
 ## Header
 
@@ -76,7 +78,13 @@
 
 
 
+
+
+
+
 # HTTP 요청
+
+
 
 ### 1. **쿼리 파라미터 (GET)**
 
@@ -85,6 +93,8 @@
 
 ex) 검색, 필터, 페이징 등
 
+
+
 ### 2. **HTML  Form (POST)**
 
 - `Content-type`: `application/x-www-form-urlencoded`
@@ -92,7 +102,12 @@ ex) 검색, 필터, 페이징 등
 
 ex) 회원 가입, 상품 주문, HTML Form 사용
 
-### 📌 **요청 파라미터 (request parameter) 조회** : **쿼리 파라미터, HTML  Form**
+
+
+### 📌 요청 파라미터 (request parameter) 조회 
+
+- 쿼리 파라미터
+- HTML  Form
 
 ````
  ` 💡 `@RequestParam`
@@ -120,7 +135,8 @@ ex) 회원 가입, 상품 주문, HTML Form 사용
 
 BUT `RequestParam` 도 생략 가능 →  혼란 가능성
 
-> > > > String, int, Integer 과 같은 단순 타입 : `RequestParam` 그 외( = argument resolver로 지정한 타입 외) : `ModelAttribute`
+> > > > String, int, Integer 과 같은 단순 타입 : `RequestParam` 
+그 외( + argument resolver로 지정한 타입 외) : `ModelAttribute`
 
 **BindException** : 숫자가 들어갈 곳에 문자를 넣는 경우 발생
 ```
@@ -153,6 +169,10 @@ BUT `RequestParam` 도 생략 가능 →  혼란 가능성
 - 직접 만든 객체 지정 가능
 
 **생략 불가능**
+생략시 ModelAttribute 적용 > 메시지 바디가 아닌 요청 파라미터 처리
+
+주의 : 요청시 Content-Type application/json 확인
+		그래야 JSON 처리 가능한 HTTP 메시지 컨버터 실행
 ````
 
 
@@ -179,6 +199,8 @@ ex) <http://localhost:8080/basic/hello-form.html> 으로 요청
 -> src/main/resources/static/basic/hello-form.html 의 정적 리소스 제공
 ```
 
+
+
 ### 2.**뷰 템플릿**
 
 - 웹 브라우저에 동적인 HTML 제공
@@ -200,6 +222,8 @@ public class ResponseViewController {
 // src/main/resources/templates/response/hello 에 있는 뷰 템플릿 호출 
 ```
 
+
+
 ### 3. **Http 메시지**
 
 - HTTP  API 의 경우, 데이터 전달
@@ -213,16 +237,15 @@ public class ResponseViewController {
 
 : 객체 → HTTP 메시지 컨버터 → JSON 응답
 
-O
-
+< O >
 - HTTP 의 메시지바디에  문자 내용 직접 반환
 - `HttpMessageConverter` 동작
 
-X
+< X >
+- `ViewResolver` 동작 
 
-- `ViewResolver` 동작 </aside>
 
-<aside> 💡 `@RestController` = `@Controller` + `@RequestBody`
+💡 `@RestController` = `@Controller` + `@RequestBody`
 
 Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 효과 → 뷰 템플릿 사용 X → HTTP 메시지 바디에 직접 데이터 입력
 
@@ -239,13 +262,59 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 
 **핸들러 어댑터 ↔ 컨트롤러**
 
-![](images/WEEK05.assets/messageConverter-16515607299361.png)
+![](images/WEEK05.assets/argumentHandler.png)
+
 
 
 
 
 
 # MessageConverter  
+
+<**요청>**
+
+### ArgumentResolver (= `HandlerMethodArgumentResolver`)
+
+> ArgumentResolver 의 supportsParameter() 를 호출해서 해당 파라미터를 지원하는지 체크
+>
+> 지원하면 resolveArgument() 를 호출해서 실제 객체를 생성
+
+- HttpServletRequest, Model, RequestParam, ModelAttribute 어노테이션 처리
+- RequestBody, HttpEntity 등  HTTP 메시지 처리
+  - 각각을 처리하는 HTTP 메시지 컨버터를 사용해서 필요한 객체를 생성
+
+- 컨트롤러(핸들러)가 필요로 하는 다양한 파라미터의 값(객체)을 생성
+- `RequestMappingHandlerAdaptor`
+
+```java
+1. ArgumentResolver 호출
+2. 컨트롤러(핸들러)가 필요로 하는 파라미터의 값(객체) 생성
+3. 컨트롤러 호출 & 값 전달
+```
+
+
+
+**<응답>**
+
+### ReturnValueHandler ( = `HandlerMethodReturnValueHandler`)
+
+- ResponseBody, HttpEntity 처리
+- HTTP 메시지 컨버터 호출 → 응답 결과 생성
+
+
+
+
+
+
+
+
+
+
+
+**![](images/WEEK05.assets/messageConverter-16515607299361.png)**
+
+# MessageConverter  : 문자나 객체 변환
+
 
 - 문자나 객체 변환
 - 뷰 템플릿으로 HTML 생성하여 응답 X
@@ -258,17 +327,20 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 
 
 
-| 우선순위    | 0                             | 1                          | 2                                   |
-| ----------- | ----------------------------- | -------------------------- | ----------------------------------- |
-| 컨버터명    | ByteArrayHttpMessageConverter | StringHttpMessageConverter | MappingJackson2HttpMessageConverter |
-| 클래스 타입 | byte[]                        | String                     | 객체 또는 HashMap                   |
-| 미디어타입  | `*/*`                         | `*/*`                      | `application/json`                  |
+| 우선순위   | 0                             | 1                          | 2                                   |
+| ---------- | ----------------------------- | -------------------------- | ----------------------------------- |
+| 컨버터명   | ByteArrayHttpMessageConverter | StringHttpMessageConverter | MappingJackson2HttpMessageConverter |
+| 클래스타입 | byte[]                        | String                     | 객체 또는 HashMap                   |
+| 미디어타입 | `*/*`                         | `*/*`                      | `application/json`                  |
 
 
 
 
 
-- **요청 데이터 읽기 메시지 컨버터 조건 : HTTP Content-Type & 컨트롤러 파라미터 타입**
+- **요청 데이터 읽기 **
+
+  > 메시지 컨버터 조건 : HTTP Content-Type & 컨트롤러 파라미터 타입
+
   1. 컨트롤러에서 `@RequestBody`, `HttpEntity(RequestEntity)` 파라미터 사용
   2. 메시지 컨버터가 메시지를 쓸 수 있는지 확인하기 위해 HTTP 메시지 컨버터 canRead() 호출
   3. 대상 **클래스 타입**을 지원하는지 ex) @RequestBody 의 대상 클래스 (byte[], String, HelloData )
@@ -279,12 +351,16 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 
 
 
-- **응답 데이터 생성 메시지 컨버터 조건 : HTTP Accept 헤더 & 컨트롤러 반환 타입**
+- **응답 데이터 생성 **
+
+  >  메시지 컨버터 조건 : HTTP Accept 헤더 & 컨트롤러 반환 타입
+
   1. 컨트롤러에서 `@ResponseBody`, `HttpEntity(ResponseEntity)`
   2. 메시지 컨버터가 메시지를 쓸 수 있는지 확인하기 위해 HTTP 메시지 컨버터 canWrite() 호출
   3. 대상 **클래스 타입**을 지원하는지 ex) return 의 대상 클래스 (byte[], String, HelloData )
   4. HTTP 요청의 Accept **미디어 타입**을 지원하는가 (@RequestMapping 의 produces) ex) text/plain, application/json, **/**
   5. canWrite() 조건 만족  ➡ write()  호출 & HTTP 응답 메시지 바디에 데이터 생성
+
 
 
 
@@ -331,3 +407,4 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 [참고 : HTTP헤더](https://gmlwjd9405.github.io/2019/01/28/http-header-types.html)
 
 [참고 : DispatcherServlet](https://mangkyu.tistory.com/18)
+
