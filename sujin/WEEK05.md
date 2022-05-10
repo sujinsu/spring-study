@@ -1,4 +1,4 @@
-# 스프링 MVC
+# 
 
 # SpringMVC
 
@@ -245,8 +245,9 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 
 
 
-# MessageConverter  : 문자나 객체 변환
+# MessageConverter  
 
+- 문자나 객체 변환
 - 뷰 템플릿으로 HTML 생성하여 응답 X
 - HTTP API처럼 JSON 데이터를 HTTP 메시지 바디에서 직접 읽거나 쓰는 경우 편리
 - HTTP 요청, HTTP 응답 둘 다 사용
@@ -314,3 +315,19 @@ Controller 대신에 사용 시 해당 컨트롤러 모두 ResponseBody 적용 �
 
 - ResponseBody, HttpEntity 처리
 - HTTP 메시지 컨버터 호출 → 응답 결과 생성
+
+
+
+
+
+
+
+
+
+
+
+[참고 : 메시지컨버터](https://velog.io/@woo00oo/HTTP-%EB%A9%94%EC%8B%9C%EC%A7%80-%EC%BB%A8%EB%B2%84%ED%84%B0)
+
+[참고 : HTTP헤더](https://gmlwjd9405.github.io/2019/01/28/http-header-types.html)
+
+[참고 : DispatcherServlet](https://mangkyu.tistory.com/18)
