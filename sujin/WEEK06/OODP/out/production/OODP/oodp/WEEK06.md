@@ -113,5 +113,3 @@
 [참고 - 디자인패턴](https://gmlwjd9405.github.io/2018/07/06/design-pattern.html)
 
 [참고 - 코드](https://velog.io/@bosl95/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4)
-
-[참고 - 영상](https://youtu.be/lJES5TQTTWE)
