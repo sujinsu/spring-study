@@ -8,8 +8,8 @@
   - [준영속, 삭제](#준영속-삭제)
   - [영속성 컨텍스트의 이점](#영속성-컨텍스트의-이점)
   - [1차 캐시](#1차-캐시)
-    - [1차 캐시에 없을 때](#1차-캐시에-없을-때)
     - [1차 캐시에 있을 때](#1차-캐시에-있을-때)
+    - [1차 캐시에 없을 때](#1차-캐시에-없을-때)
   - [동일성 보장](#동일성-보장)
   - [변경 감지 (Dirty Checking)](#변경-감지-dirty-checking)
   - [flush](#flush)
@@ -59,7 +59,7 @@ member.setName("geonyeon");
 
 ```
 EntityManager em = emf.createEntityManager();
-EntityTranscation tx = em.getTranscation();
+EntityTransaction tx = em.getTransaction();
 tx.begin();
 
 try {
@@ -94,13 +94,13 @@ em.remove(member);
 
 ## 1차 캐시
 
-### 1차 캐시에 없을 때
+### 1차 캐시에 있을 때
 
 ![first-cache](assets/first-cache.JPG)
 
 - DB까지 다녀오지 않고 값을 조회
 
-### 1차 캐시에 있을 때
+### 1차 캐시에 없을 때
 
 ![db-access](assets/db-access.JPG)
 
