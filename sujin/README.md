@@ -14,6 +14,7 @@
 | :white_check_mark:  Wrapper Class : 형변환 & 제네릭          | WEEK04 |
 | :white_check_mark:  메시지컨버터와 Spring mvc                | WEEK05 |
 | :white_check_mark:  객체지향 디자인 패턴                     | WEEK06 |
+| :white_check_mark:  MockMvc                                  | WEEK07 |
 | :white_large_square:  QueryDSL                               |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
@@ -132,6 +133,8 @@ public class DoubleColonTest {
 
 ### - @Transactional
 
+- CGLIB
+
 - @Transactional 이 클래스 내지 메서드에 붙을 때 Spring은 해당 메서드에 대한 프록시 생성
 
 
@@ -139,27 +142,6 @@ public class DoubleColonTest {
 [참고1](https://kafcamus.tistory.com/30)
 
 [참고2](https://goddaehee.tistory.com/167)
-
-
-
----
-
-### - @RestController & @Controller
-
-- **@RestController** 
-  - @Controller + @ResponseBody 
-  - json 형태로 객체 데이터 반환
-
-- **@Controller** 
-  - view 반환을 위해 사용
-  - View를 반환하기 위해 ViewResolver가 사용
-    ViewResolver에서 설정에 맞는 View를 찾아 렌더링
-  - `@ResponseBody` 사용
-    - 자바 객체를 HTTP 요청의 body 내용으로 매핑하는 역할
-
-
-
-[참고1](https://joomn11.tistory.com/53)
 
 ---
 
