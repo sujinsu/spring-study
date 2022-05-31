@@ -15,6 +15,7 @@
 | :white_check_mark:  메시지컨버터와 Spring mvc                | WEEK05 |
 | :white_check_mark:  객체지향 디자인 패턴                     | WEEK06 |
 | :white_check_mark:  MockMvc                                  | WEEK07 |
+| :white_check_mark:  Api Gateway Rate Limit                   | WEEK08 |
 | :white_large_square:  QueryDSL                               |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
