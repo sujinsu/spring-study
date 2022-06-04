@@ -357,8 +357,8 @@ docker container start postgres
 docker run -p 5050:80  -e "PGADMIN_DEFAULT_EMAIL={your_email}" -e "PGADMIN_DEFAULT_PASSWORD={password}"  -d dpage/pgadmin4
 
 # 컨테이너 실행 및 bash 
-- docker run --name some-postgres -e POSTGRES_PASSWORD=postgres -d postgres
-- docker exec -it some-postgres bash
+- docker run --name postgres -e POSTGRES_PASSWORD=postgres -d postgres
+- docker exec -it postgres bash
 - psql -U postgres
 
 >> sql문 입력 ! ㄱㄱ
