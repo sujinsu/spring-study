@@ -275,4 +275,3 @@ public class MonitoringApplication {
 - [Spring Cloud - Springboot Actuator](https://assu10.github.io/dev/2020/03/26/spring-actuator/)
 
 - [Actuator API](https://docs.spring.io/spring-boot/docs/current/actuator-api/htmlsingle/#overview)
-- 
