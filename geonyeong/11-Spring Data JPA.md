@@ -1,10 +1,10 @@
 - [Spring Data JPA](#spring-data-jpa)
-	- [Spring Data JPA란?](#spring-data-jpa란)
-	- [주의사항](#주의사항)
-	- [build.gradle](#buildgradle)
-	- [순수 JPA 이용](#순수-jpa-이용)
-	- [Spring Data JPA 이용](#spring-data-jpa-이용)
-	- [Reference](#reference)
+  - [Spring Data JPA란?](#spring-data-jpa란)
+  - [주의사항](#주의사항)
+  - [build.gradle](#buildgradle)
+  - [순수 JPA 이용](#순수-jpa-이용)
+  - [Spring Data JPA 이용](#spring-data-jpa-이용)
+  - [Reference](#reference)
 
 # Spring Data JPA
 
@@ -16,7 +16,7 @@
 
 - CRUD(등록, 수정, 삭제, 조회) 기능을 모두 제공함으로써 단순한 반복이 줄어듦 → **핵심 비즈니스 로직에 집중 가능** → **개발 생산성 향상**
 
-Spring Data JPA는 `선택`이 아니라 `필수`!
+- Spring Data JPA는 `선택`이 아니라 `필수`!
 
 ## 주의사항
 
@@ -97,6 +97,34 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
 > Q) "interface만 있는데 어떻게 실행이 되나요?  
 > A) Spring Container에서 해당 interface에 대한 구현체를 만들어주고 의존 관계를 주입해줍니다.
+
+```java
+class MemberRepositoryTest {
+    @Autowired
+    MemberRepository memberRepository;
+
+    @Test
+    public void testMember() {
+        System.out.println("memberRepository = " + memberRepository.getClass());
+        
+        Member member = new Member("memberA");
+        Member savedMember = memberRepository.save(member);
+
+        Member findMember = memberRepository.findById(savedMember.getId()).get();
+
+        assertThat(findMember.getId()).isEqualTo(member.getId());
+        assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+        assertThat(findMember).isEqualTo(member);
+    }
+```
+
+실행결과 : **Proxy 패턴**을 이용하여 구현체를 스프링 컨테이너가 집어넣어준다.
+
+```text
+memberRepository = class com.sun.proxy.$Proxy118
+```
+
+![JpaRepository](assets/JpaRepository.png)
 
 ## Reference
 [실전! 스프링 데이터 JPA](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-JPA-%EC%8B%A4%EC%A0%84/)
