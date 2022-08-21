@@ -1,14 +1,19 @@
 - [Date, Time](#date-time)
-	- [Date와 Time 문제점](#date와-time-문제점)
-	- [Java8 Date-Time API](#java8-date-time-api)
-		- [기계 시간](#기계-시간)
-		- [사람 시간](#사람-시간)
+  - [Date와 Time 문제점](#date와-time-문제점)
+  - [Java8 Date-Time API](#java8-date-time-api)
+    - [기계 시간](#기계-시간)
+    - [사람 시간](#사람-시간)
+  - [이전 API와 호환](#이전-api와-호환)
+  - [Formatter](#formatter)
+  - [Reference](#reference)
 
 # Date, Time
 
 ## Date와 Time 문제점
 
 - java.util.Date 클래스는 mutable한 속성으로 thread가 동시에 접근시 데이터 값이 예상 결과와 다를 수 있다
+
+![mutable](assets/mutable.png)
 
 ```java
 public class DateAndTime {
@@ -25,7 +30,7 @@ public class DateAndTime {
 
         Date after3Seconds = new Date();
         System.out.println("after3Seconds = " + after3Seconds);
-        after3Seconds.setTime(time);
+        after3Seconds.setTime(time); // mutable한 속성
         System.out.println("after3Seconds = " + after3Seconds);
 
         // month가 0부터 시작, Type Safety가 없다
@@ -120,3 +125,38 @@ today = 2022-08-21
 period = 24
 until.get(ChronoUnit.DAYS) = 24
 ```
+
+## 이전 API와 호환
+
+- ** API 개발 Point → 이전에 잘 되는 것이 새로운 것에서도 잘 동작하도록
+
+```java
+        // 이전 API와 새로운 API 호환 가능 (API 개발 Point => 이전에 잘 되는 것이 새로운 것에서도 잘 동작하도록)
+        Instant dateToInstant = date.toInstant();
+        Date newDate = Date.from(dateToInstant);
+
+        GregorianCalendar gregorianCalendar = new GregorianCalendar();
+        LocalDateTime localDateTimeFromGregory = gregorianCalendar.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+
+        ZonedDateTime zonedDateTimeFromGregory = gregorianCalendar.toInstant().atZone(ZoneId.systemDefault());
+
+        GregorianCalendar.from(zonedDateTimeFromGregory);
+```
+
+## Formatter
+
+- 년, 월, 일, 시, 분, 초를 원하는 형식으로 가공해주는 역할
+
+```java
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println("localDateTime = " + localDateTime);
+        DateTimeFormatter MMddyyyy = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        System.out.println("localDateTime.format(MMddyyyy) = " + localDateTime.format(MMddyyyy));
+
+        LocalDate parse = LocalDate.parse("01/14/1993", MMddyyyy);
+        System.out.println("parse = " + parse);
+```
+
+## Reference
+
+- [더 자바, Java 8](https://www.inflearn.com/course/the-java-java8/dashboard)
