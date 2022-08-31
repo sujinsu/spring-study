@@ -21,6 +21,7 @@
 | :white_check_mark: Spring Validation                         | WEEK11 |
 | :white_check_mark: Spring AOP                                | WEEK12 |
 | :white_check_mark: REST API                                  | WEEK13 |
+| :white_check_mark: Spring Batch                              | WEEK14 |
 | :white_large_square:  QueryDSL                               |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
