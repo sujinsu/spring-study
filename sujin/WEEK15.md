@@ -59,7 +59,7 @@ WAS 와 DB 연결에 필요한 비용이 Insert문 수행 시 가장 큰 비율
 
 
 
-![](images/WEEK15.assets/Untitled 1.png)
+![](images/WEEK15.assets/connectionPool.png)
 
 - 유효 커넥션이 존재 X → HandOffQueue 를 Polling 하며 다른 Thread 커넥션 반납 대기
 - 커넥션 풀에 커넥션 반납 시 HandOffQueue에 삽입
@@ -77,7 +77,7 @@ A. 대기하는 Thread 수 증가
 
 
 
-![](images/WEEK15.assets/Untitled 2.png)
+![](images/WEEK15.assets/connectionPoolsize.png)
 
 
 
