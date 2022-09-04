@@ -16,13 +16,14 @@
 
 ![transactionFail](assets/transactionFail.png)
 
+![transactionScope](assets/transactionScope.png)
+
 ## 트랜잭션 전파
 
 - 여러 메서드 호출이 한 트랜잭션에 묶이도록 하기 위해 필요
 - 예) 스프링 프레임워크의 트랜잭션 처리
 메서드 간에 connection 객체를 전달하지 않아도 한 트랜잭션으로 묶어서 진행
 
-![transactionScope](assets/transactionScope.png)
 
 ![transactionSpring](assets/transactionSpring.png)
 
@@ -41,4 +42,4 @@
 
 ## Reference
 
-- [https://www.youtube.com/c/%EC%B5%9C%EB%B2%94%EA%B7%A0](프로그래밍 초식 : DB 트랜잭션 조금 이해하기)
+- [프로그래밍 초식 : DB 트랜잭션 조금 이해하기](https://www.youtube.com/c/%EC%B5%9C%EB%B2%94%EA%B7%A0)
