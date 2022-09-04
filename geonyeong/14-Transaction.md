@@ -24,6 +24,8 @@
 
 ![transactionScope](assets/transactionScope.png)
 
+![transactionSpring](assets/transactionSpring.png)
+
 ## 외부 연동
 
 - 외부 연동과 함께 있으면 롤백 처리 주의
