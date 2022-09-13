@@ -23,6 +23,7 @@
 | :white_check_mark: REST API                                  | WEEK13 |
 | :white_check_mark: Spring Batch                              | WEEK14 |
 | :white_check_mark: DB Connection Pool & Context Switch       | WEEK15 |
+| :white_check_mark: Error & Exception                         | WEEK16 |
 | :white_large_square:  QueryDSL                               |        |
 | :white_large_square:  NotNull, NotBlank                      |        |
 | :white_large_square:  이중콜론 연산자 (::)                   |        |
