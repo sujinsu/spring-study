@@ -6,58 +6,31 @@
 >
 > 정리 시 아래의 내용 ✋
 
-| 주제                                                         |        |
-| ------------------------------------------------------------ | ------ |
-| :white_check_mark:  백엔드 기초                              | WEEK01 |
-| :white_check_mark:  JPA                                      | WEEK02 |
-| :white_check_mark:  DAO, DTO, Entity and VO                  | WEEK03 |
-| :white_check_mark:  Wrapper Class : 형변환 & 제네릭          | WEEK04 |
-| :white_check_mark:  메시지컨버터와 Spring mvc                | WEEK05 |
-| :white_check_mark:  객체지향 디자인 패턴                     | WEEK06 |
-| :white_check_mark:  MockMvc                                  | WEEK07 |
-| :white_check_mark:  Api Gateway Rate Limit                   | WEEK08 |
-| :white_check_mark:  APM & DPM                                | WEEK09 |
-| :white_check_mark: Swagger                                   | WEEK10 |
-| :white_check_mark: Spring Validation                         | WEEK11 |
-| :white_check_mark: Spring AOP                                | WEEK12 |
-| :white_check_mark: REST API                                  | WEEK13 |
-| :white_check_mark: Spring Batch                              | WEEK14 |
-| :white_check_mark: DB Connection Pool & Context Switch       | WEEK15 |
-| :white_check_mark: Error & Exception                         | WEEK16 |
-| :white_large_square:  QueryDSL                               |        |
-| :white_large_square:  NotNull, NotBlank                      |        |
-| :white_large_square:  이중콜론 연산자 (::)                   |        |
-| :white_large_square:  즉시 로딩과 지연 로딩                  |        |
-| :white_large_square:  @Transactional                         |        |
-| :white_large_square:  @RestController & @Controller          |        |
-| :white_large_square:  @RequestBody & @ ReqeustParam & @ModelAttrubute |        |
-| :white_large_square:  WebSecurity & HttpSecurity             |        |
-| :white_large_square:  인증 vs 인가                           |        |
-| :white_large_square:  Swagger Authorize                      |        |
-| :white_large_square:  서블릿 & jsp                           |        |
-| :white_large_square:  디자인 패턴                            |        |
-| :white_large_square:  빌더 패턴                              |        |
-| :white_large_square: Java의 직렬화(Serialize)                |        |
-
-
+| 주제                                                   |        |
+| ------------------------------------------------------ | ------ |
+| :white_check_mark:  백엔드 기초                        | WEEK01 |
+| :white_check_mark:  JPA                                | WEEK02 |
+| :white_check_mark:  DAO, DTO, Entity and VO            | WEEK03 |
+| :white_check_mark:  Wrapper Class : 형변환 & 제네릭    | WEEK04 |
+| :white_check_mark:  메시지컨버터와 Spring mvc          | WEEK05 |
+| :white_check_mark:  객체지향 디자인 패턴               | WEEK06 |
+| :white_check_mark:  MockMvc                            | WEEK07 |
+| :white_check_mark:  Api Gateway Rate Limit             | WEEK08 |
+| :white_check_mark:  APM & DPM                          | WEEK09 |
+| :white_check_mark: Swagger                             | WEEK10 |
+| :white_check_mark: Spring Validation                   | WEEK11 |
+| :white_check_mark: Spring AOP                          | WEEK12 |
+| :white_check_mark: REST API                            | WEEK13 |
+| :white_check_mark: Spring Batch                        | WEEK14 |
+| :white_check_mark: DB Connection Pool & Context Switch | WEEK15 |
+| :white_check_mark: Error & Exception                   | WEEK16 |
+| :white_large_square:                                   |        |
 
 
 
 
 
 # :pushpin: 궁금한 것들
-
-
-
----
-
-### - NotNull, NotBlank
-
-
-
-
-
----
 
 ### - 이중콜론 연산자 (::)
 
