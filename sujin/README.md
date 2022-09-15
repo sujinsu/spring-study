@@ -302,3 +302,9 @@ protected void configure(HttpSecurity http) throws Exception {
 
 
 [참고1](https://devlog-wjdrbs96.tistory.com/268)
+
+---
+
+인바운드 아웃바운드
+
+업스트림 다운스트림
