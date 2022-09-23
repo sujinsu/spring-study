@@ -24,7 +24,7 @@
 | :white_check_mark: Spring Batch                        | WEEK14 |
 | :white_check_mark: DB Connection Pool & Context Switch | WEEK15 |
 | :white_check_mark: Error & Exception                   | WEEK16 |
-| :white_large_square:                                   |        |
+| :white_check_mark: Static & FInal                      | WEEK17 |
 
 
 
