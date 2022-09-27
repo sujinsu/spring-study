@@ -25,6 +25,7 @@
 | :white_check_mark: DB Connection Pool & Context Switch | WEEK15 |
 | :white_check_mark: Error & Exception                   | WEEK16 |
 | :white_check_mark: Static & FInal                      | WEEK17 |
+| :white_check_mark: Java Lambda                         | WEEK18 |
 
 
 
