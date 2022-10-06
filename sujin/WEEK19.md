@@ -15,7 +15,7 @@
     - CPU 시간
     - 운영되기 위해 필요한 주소 공간
 
-![img](images\WEEK19.assets\Untitled.png)
+![](images/WEEK19.assets/Untitled.png)
 
 
 
@@ -40,7 +40,7 @@
 - 프로세스의 특정한 수행 경로
 - 프로세스가 할당 받은 자원을 이용하는 실행 단위
 
-![img](images\WEEK19.assets\Untitled1.png)
+![](images/WEEK19.assets/Untitled1.png)
 
 
 
@@ -145,7 +145,7 @@
 
 = 여러 프로세스(멀티 프로세스)로 할 수 있는 작업을 하나의 프로세스에서 여러 쓰레드로 나눠가며 하는 이유
 
-![img](images\WEEK19.assets\Untitled2.png)
+![](images/WEEK19.assets/Untitled2.png)
 
 
 
