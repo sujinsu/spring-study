@@ -28,6 +28,7 @@
 | :white_check_mark: Java Lambda & 이중콜론 연산자       | WEEK18 |
 | :white_check_mark: Process & Thread                    | WEEK19 |
 | :white_check_mark: TLS & Handshake                     | WEEK20 |
+| :white_check_mark: Ingress                             | WEEK21 |
 
 
 
