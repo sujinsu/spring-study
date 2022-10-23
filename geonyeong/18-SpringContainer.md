@@ -1,12 +1,12 @@
 - [SpringContainer](#springcontainer)
-  - [spring-contex 실습](#spring-contex-실습)
+  - [spring-context 실습](#spring-context-실습)
   - [Spring은 객체 컨테이너](#spring은-객체-컨테이너)
   - [Sigleton 객체](#sigleton-객체)
   - [Reference](#reference)
 
 # SpringContainer
 
-## spring-contex 실습
+## spring-context 실습
 
 ```gradle
 // gradle java 플러그인 적용
