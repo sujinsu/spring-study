@@ -29,6 +29,7 @@
 | :white_check_mark: Process & Thread                    | WEEK19 |
 | :white_check_mark: TLS & Handshake                     | WEEK20 |
 | :white_check_mark: Ingress                             | WEEK21 |
+| :white_check_mark: HttpClient                          | WEEK22 |
 
 
 
