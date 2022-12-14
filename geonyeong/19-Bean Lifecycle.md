@@ -18,16 +18,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
 
   public static void main(String[] args) {
-		// 1. 컨테이너 초기화
+    // 1. 컨테이너 초기화
     AnnotationConfigApplicationContext ctx = 
         new AnnotationConfigApplicationContext(AppContext.class);
 
-		// 2. 컨테이너에서 빈 객체를 구해서 사용
+    // 2. 컨테이너에서 빈 객체를 구해서 사용
     Greeter g1 = ctx.getBean("greeter", Greeter.class);
     Greeter g2 = ctx.getBean("greeter", Greeter.class);
     System.out.println("(g1 == g2) = " + (g1 == g2));
 
-		// 3. 컨테이너 종료
+    // 3. 컨테이너 종료
     ctx.close();
   }
 }
@@ -52,11 +52,11 @@ public class Main {
 
 ```java
 public interface InitializingBean {
-	void afterPropertiesSet() throws Exception;
+  void afterPropertiesSet() throws Exception;
 }
 
 public interface DisposableBean {
-	void destory() throws Exception;
+  void destory() throws Exception;
 }
 ```
 
@@ -73,25 +73,25 @@ import org.springframework.beans.factory.InitializingBean;
 
 public class Client implements InitializingBean, DisposableBean {
 
-	private String host;
+  private String host;
 
-	public void setHost(String host) {
-		this.host = host;
-	}
+  public void setHost(String host) {
+    this.host = host;
+  }
 
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("Client.afterPropertiesSet() 실행");
-	}
+  @Override
+  public void afterPropertiesSet() throws Exception {
+    System.out.println("Client.afterPropertiesSet() 실행");
+  }
 
-	public void send() {
-		System.out.println("Client.send() to " + host);
-	}
+  public void send() {
+    System.out.println("Client.send() to " + host);
+  }
 
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("Client.destroy() 실행");
-	}
+  @Override
+  public void destroy() throws Exception {
+    System.out.println("Client.destroy() 실행");
+  }
 
 }
 
@@ -118,15 +118,15 @@ import spring.Client;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		AbstractApplicationContext ctx = 
-				new AnnotationConfigApplicationContext(AppCtx.class);
+  public static void main(String[] args) throws IOException {
+    AbstractApplicationContext ctx = 
+        new AnnotationConfigApplicationContext(AppCtx.class);
 
-		Client client = ctx.getBean(Client.class);
-		client.send();
+    Client client = ctx.getBean(Client.class);
+    client.send();
 
-		ctx.close();
-	}
+    ctx.close();
+  }
 
 }
 ```
@@ -144,23 +144,23 @@ Client.destory() 실행
 
 public class Client2 {
 
-	private String host;
+  private String host;
 
-	public void setHost(String host) {
-		this.host = host;
-	}
+  public void setHost(String host) {
+    this.host = host;
+  }
 
-	public void connect() {
-		System.out.println("Client2.connect() 실행");
-	}
+  public void connect() {
+    System.out.println("Client2.connect() 실행");
+  }
 
-	public void send() {
-		System.out.println("Client2.send() to " + host);
-	}
+  public void send() {
+    System.out.println("Client2.send() to " + host);
+  }
 
-	public void close() {
-		System.out.println("Client2.close() 실행");
-	}
+  public void close() {
+    System.out.println("Client2.close() 실행");
+  }
 
 }
 ```
